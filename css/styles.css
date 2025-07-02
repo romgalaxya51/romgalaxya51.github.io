@@ -144,6 +144,7 @@ header nav a:hover {
   transform: translateY(-4px) scale(1.03);
   background: rgba(255, 255, 255, 0.3);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  animation: gentleShake 0.6s ease-in-out;
 }
 
 .feature img {
@@ -186,6 +187,13 @@ header nav a:hover {
   width: 100%;
 }
 
+.info-download-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ==== ROM INFO ==== */
 .rom-info {
   display: flex;
   flex-direction: column;
@@ -197,19 +205,22 @@ header nav a:hover {
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid rgba(255, 255, 255, 0.3);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s, background 0.3s;
+  transform: translateY(0); /* ✅ Penting untuk transisi halus */
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
 }
 
 .rom-info:hover {
-  background: rgba(255, 255, 255, 0.35);
-  transform: translateY(-2px);
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  filter: brightness(1.03) saturate(1.1);
+  animation: gentleShake 0.6s ease 1; /* ✅ Sekali saja */
 }
 
-.info-download-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 /* ==== TOMBOL DOWNLOAD ==== */
 .download-link {
@@ -223,7 +234,6 @@ header nav a:hover {
   align-items: center;
   gap: 0.3rem;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   transform: scale(1);
 }
 
@@ -289,10 +299,32 @@ body.dark-mode .rom-info {
   background: rgba(55, 55, 55, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.08);
   box-shadow: 0 4px 12px rgba(255, 255, 255, 0.03);
+  transform: translateY(0);
+  transition:
+    transform 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease,
+    filter 0.3s ease;
 }
 
 body.dark-mode .rom-info:hover {
-  background: rgba(55, 55, 55, 0.55);
+  background: rgba(60, 60, 60, 0.5);
+  box-shadow: 0 6px 24px rgba(255, 255, 255, 0.05);
+  filter: brightness(1.05) saturate(1.2);
+  transform: translateY(-4px);
+  animation: gentleShake 0.6s ease 1; /* ✅ Sekali saja */
+}
+
+body.dark-mode .feature {
+  background: rgba(40, 40, 40, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.03);
+}
+
+body.dark-mode .feature:hover {
+  background: rgba(40, 40, 40, 0.55);
+  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.08);
+  animation: gentleShake 0.6s ease-in-out;
 }
 
 body.dark-mode .download ul li {
@@ -313,17 +345,6 @@ body.dark-mode .release-date {
 
 body.dark-mode .rom-separator {
   border-top: 1px solid #555;
-}
-
-body.dark-mode .feature {
-  background: rgba(40, 40, 40, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.03);
-}
-
-body.dark-mode .feature:hover {
-  background: rgba(40, 40, 40, 0.55);
-  box-shadow: 0 8px 20px rgba(255, 255, 255, 0.08);
 }
 
 /* ==== TANGGAL RILIS & PEMBATAS ==== */
@@ -425,11 +446,13 @@ body.dark-mode .site-title {
   }
 }
 
-.download,
-.rom-info {
+.download {
   animation: fadeUp 0.8s ease-out both;
 }
 
-.rom-info {
-  animation-delay: 0.3s;
+@keyframes gentleShake {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-1px); }
+  50% { transform: translateY(2px); }
+  75% { transform: translateY(-1px); }
 }
