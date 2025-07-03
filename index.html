@@ -24,6 +24,9 @@
 </head>
 <body>
 
+  <!-- Background Blur -->
+  <div id="bg-blur"></div>
+
   <!-- Header -->
   <header>
     <div class="container header-flex">
@@ -126,12 +129,14 @@
 
   <!-- About -->
   <section id="about" class="about container">
-    <h2>Informasi</h2>
-    <p>
-      ROM ini di-porting dari perangkat kelas atas dan perangkat kelas menengah
-      yang lebih baru untuk menghadirkan fitur-fitur terbaru pada perangkat
-      Samsung Galaxy A51 4G.
-    </p>
+    <div class="rom-info">
+      <h2>Informasi</h2>
+      <p>
+        ROM ini di-porting dari perangkat kelas atas dan perangkat kelas menengah
+        yang lebih baru untuk menghadirkan fitur-fitur terbaru pada perangkat
+        Samsung Galaxy A51 4G.
+      </p>
+    </div>
   </section>
 
   <!-- Footer -->
@@ -141,22 +146,22 @@
     </div>
   </footer>
 
+  <!-- Blur Slider -->
+  <div style="position: fixed; bottom: 1rem; right: 1rem; z-index: 9999; background: rgba(0,0,0,0.3); padding: 0.5rem 1rem; border-radius: 8px;">
+    <label style="color: white; font-size: 0.9rem;">Blur: <span id="blur-value">8</span>px</label><br />
+    <input type="range" id="blur-slider" min="0" max="20" value="8" />
+  </div>
+
   <!-- Theme Toggle & ScrollReveal -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const toggleBtn = document.getElementById('toggle-theme');
+      const blurTarget = document.getElementById('bg-blur');
+      const blurSlider = document.getElementById('blur-slider');
+      const blurValue = document.getElementById('blur-value');
 
-      const iconMoon = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/>
-        </svg>
-      `;
-
-      const iconSun = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M6.76 4.84l-1.8-1.79-1.42 1.41 1.79 1.8 1.43-1.42zm10.48 14.32l1.79 1.8 1.42-1.42-1.8-1.79-1.41 1.41zM12 4V1h-1v3h1zm0 19v-3h-1v3h1zm8-10h3v-1h-3v1zm-19 0h3v-1H1v1zm15.24-7.76l1.8-1.79-1.42-1.42-1.79 1.8 1.41 1.41zM4.22 19.78l1.79-1.8-1.42-1.41-1.79 1.79 1.42 1.42zM12 6a6 6 0 100 12 6 6 0 000-12z"/>
-        </svg>
-      `;
+      const iconMoon = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z"/></svg>`;
+      const iconSun = `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24"><path d="M6.76 4.84l-1.8-1.79-1.42 1.41 1.79 1.8 1.43-1.42zm10.48 14.32l1.79 1.8 1.42-1.42-1.8-1.79-1.41 1.41zM12 4V1h-1v3h1zm0 19v-3h-1v3h1zm8-10h3v-1h-3v1zm-19 0h3v-1H1v1zm15.24-7.76l1.8-1.79-1.42-1.42-1.79 1.8 1.41 1.41zM4.22 19.78l1.79-1.8-1.42-1.41-1.79 1.79 1.42 1.42zM12 6a6 6 0 100 12 6 6 0 000-12z"/></svg>`;
 
       function updateIcon(isDark) {
         toggleBtn.innerHTML = isDark ? iconSun : iconMoon;
@@ -173,35 +178,16 @@
       });
 
       // ScrollReveal animations
-      ScrollReveal().reveal('.hero', {
-        delay: 100,
-        distance: '40px',
-        origin: 'bottom',
-        duration: 800,
-        easing: 'ease-in-out'
-      });
+      ScrollReveal().reveal('.hero', { delay: 100, distance: '40px', origin: 'bottom', duration: 800, easing: 'ease-in-out' });
+      ScrollReveal().reveal('.feature', { interval: 100, distance: '20px', origin: 'bottom', duration: 800, easing: 'ease-in-out', scale: 0.95 });
+      ScrollReveal().reveal('.download li', { interval: 100, distance: '20px', origin: 'left', duration: 700 });
+      ScrollReveal().reveal('#about', { distance: '40px', origin: 'bottom', duration: 700, delay: 100 });
 
-      ScrollReveal().reveal('.feature', {
-        interval: 100,
-        distance: '20px',
-        origin: 'bottom',
-        duration: 800,
-        easing: 'ease-in-out',
-        scale: 0.95
-      });
-
-      ScrollReveal().reveal('.download li', {
-        interval: 100,
-        distance: '20px',
-        origin: 'left',
-        duration: 700
-      });
-
-      ScrollReveal().reveal('#about', {
-        distance: '40px',
-        origin: 'bottom',
-        duration: 700,
-        delay: 100
+      // Blur control
+      blurSlider.addEventListener('input', () => {
+        const val = blurSlider.value;
+        blurTarget.style.filter = `blur(${val}px)`;
+        blurValue.textContent = val;
       });
     });
   </script>
