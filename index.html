@@ -13,6 +13,10 @@
   <!-- Favicon -->
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
 
+  <!-- Preload Background (penting untuk mencegah delay) -->
+  <link rel="preload" as="image" href="assets/background.webp" type="image/webp" />
+  <link rel="preload" as="image" href="assets/background2.webp" type="image/webp" />
+
   <!-- Preload Logo -->
   <link rel="preload" as="image" href="assets/logo.webp" type="image/webp" />
 
@@ -23,6 +27,7 @@
   <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
+
 
   <!-- Background Blur -->
   <div id="bg-blur"></div>
@@ -39,8 +44,8 @@
         <a href="#features">Features</a>
         <a href="#download">Download</a>
         <a href="#about">About</a>
-      </nav>
       <button id="toggle-theme" class="theme-toggle" aria-label="Toggle Theme">
+        </nav>
         <!-- Icon diisi via JS -->
       </button>
     </div>
@@ -146,11 +151,6 @@
     </div>
   </footer>
 
-  <!-- Blur Slider -->
-  <div style="position: fixed; bottom: 1rem; right: 1rem; z-index: 9999; background: rgba(0,0,0,0.3); padding: 0.5rem 1rem; border-radius: 8px;">
-    <label style="color: white; font-size: 0.9rem;">Blur: <span id="blur-value">8</span>px</label><br />
-    <input type="range" id="blur-slider" min="0" max="20" value="8" />
-  </div>
 
   <!-- Theme Toggle & ScrollReveal -->
   <script>
