@@ -1,13 +1,9 @@
-// main.js
-
-// Blokir akses dari domain selain romgalaxya51.github.io
 if (location.hostname !== 'romgalaxya51.github.io') {
   document.body.innerHTML = '';
   document.body.style.background = '#fff';
   throw new Error('Unauthorized domain');
 }
 
-// Inject HTML ke dalam #root
 const root = document.getElementById('root');
 root.innerHTML = `
   <div id="bg-blur"></div>
@@ -76,7 +72,7 @@ root.innerHTML = `
           </div>
           <div>Android 15</div>
           <hr class="rom-separator" />
-          <div class="release-date">Juni 15, 2025</div>
+          <div class="release-date">Juni 16, 2025</div>
         </div>
       </li>
       <li>
@@ -88,19 +84,19 @@ root.innerHTML = `
           </div>
           <div>Android 15</div>
           <hr class="rom-separator" />
-          <div class="release-date">Maret 22, 2025</div>
+          <div class="release-date">Maret 16, 2025</div>
         </div>
       </li>
       <li>
         <div class="rom-info">
-          <div><strong>XROM v0.1</strong></div>
+          <div><strong>XROM Beta 1</strong></div>
           <div class="info-download-row">
             <span>One UI 7</span>
             <a href="https://www.mediafire.com/file/d0jkrg0s0xtfw8z/XROM-S23FE-V0.1-A51.zip/file" target="_blank" class="download-link">Download</a>
           </div>
           <div>Android 15</div>
           <hr class="rom-separator" />
-          <div class="release-date">Februari 01, 2025</div>
+          <div class="release-date">April 22, 2025</div>
         </div>
       </li>
     </ul>
