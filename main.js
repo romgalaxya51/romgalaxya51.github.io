@@ -77,18 +77,6 @@ root.innerHTML = `
       </li>
       <li>
         <div class="rom-info">
-          <div><strong>AOSP15</strong></div>
-          <div class="info-download-row">
-            <span>Pixel OS</span>
-            <a href="https://www.mediafire.com/file/9tgj0rsqkdh6ogt/PixelOS_a51-15.0-20250222-1803.zip/file" target="_blank" class="download-link">Download</a>
-          </div>
-          <div>Android 15</div>
-          <hr class="rom-separator" />
-          <div class="release-date">Maret 16, 2025</div>
-        </div>
-      </li>
-      <li>
-        <div class="rom-info">
           <div><strong>XROM Beta 1</strong></div>
           <div class="info-download-row">
             <span>One UI 7</span>
@@ -97,6 +85,18 @@ root.innerHTML = `
           <div>Android 15</div>
           <hr class="rom-separator" />
           <div class="release-date">April 22, 2025</div>
+        </div>
+      </li>
+      <li>
+        <div class="rom-info">
+          <div><strong>AOSP15</strong></div>
+          <div class="info-download-row">
+            <span>Pixel OS</span>
+            <a href="https://www.mediafire.com/file/9tgj0rsqkdh6ogt/PixelOS_a51-15.0-20250222-1803.zip/file" target="_blank" class="download-link">Download</a>
+          </div>
+          <div>Android 15</div>
+          <hr class="rom-separator" />
+          <div class="release-date">Maret 16, 2025</div>
         </div>
       </li>
     </ul>
