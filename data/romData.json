@@ -1,0 +1,14 @@
+[
+  {
+    "slug": "xrom",
+    "name": "XROM",
+    "date": "RELEASE SOON",
+    "status": "Beta",
+    "version": "16",
+    "android": "8",
+    "oneUI": "6.1",
+    "zipSize": "1.2 GB",
+    "downloaded": 0,
+    "link": "https://example.com/download/xrom"
+  }
+]
