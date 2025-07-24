@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  bbase: '/romgalaxya51.github.io/',
+  base: '/',
 });
