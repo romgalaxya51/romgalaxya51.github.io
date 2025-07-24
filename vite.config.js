@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: '/', // karena kamu akan deploy ke romgalaxya51.github.io (root domain)
+  bbase: '/romgalaxya51.github.io/',
 });
