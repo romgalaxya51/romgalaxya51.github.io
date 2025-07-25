@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="UTF-8" />
     <title>Redirecting...</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script>
-      // Simpan URL path sekarang
-      sessionStorage.redirect = location.pathname + location.search + location.hash;
-      // Redirect ke halaman utama (index.html)
-      location.replace("/");
+      const path = window.location.pathname;
+      const search = window.location.search;
+      const hash = window.location.hash;
+      const newUrl = "/?#" + path + search + hash;
+      window.location.replace(newUrl);
     </script>
   </head>
   <body>
